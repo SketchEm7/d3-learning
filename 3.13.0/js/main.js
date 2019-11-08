@@ -61,7 +61,10 @@ d3.json("data/revenues.json").then(function(data){
                    .call(xAxis);
                   
 
-    let yAxis = d3.axisLeft(yScale);
+    let yAxis = d3.axisLeft(yScale)
+                   .tickFormat(function(d){
+                       return "$" + d
+                   })
                  g.append("g")
                   .attr("class", "y-axis")
                   .call(yAxis);
